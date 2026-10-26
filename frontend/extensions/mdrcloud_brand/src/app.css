@@ -1,0 +1,6 @@
+@import "./brand.css";
+
+/* Tailwind's font-sans utility (core app.css) should match the brand body font too. */
+:root {
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, -apple-system, sans-serif;
+}

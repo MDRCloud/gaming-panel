@@ -1,0 +1,43 @@
+:root {
+  /* ── Background Tokens ── */
+  --mdr-bg-root: #02040a;
+  --mdr-bg-surface: #0a0d18;
+  --mdr-bg-sidebar: rgba(4, 7, 15, 0.85);
+  --mdr-bg-card: rgba(13, 17, 30, 0.65);
+  --mdr-bg-card-hover: rgba(20, 26, 45, 0.75);
+  --mdr-bg-input: rgba(8, 12, 22, 0.7);
+
+  /* ── Brand Accent Tokens ── */
+  --mdr-blue: #3b82f6;
+  --mdr-purple: #8b5cf6;
+  --mdr-cyan: #06b6d4;
+  --mdr-sky: #00adef;
+
+  /* ── Brand Gradients ── */
+  --mdr-gradient-brand: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+  --mdr-gradient-text: linear-gradient(135deg, #ffffff 0%, #a5b4fc 50%, #06b6d4 100%);
+  --mdr-gradient-btn: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+
+  /* ── Text Tokens ── */
+  --mdr-text-primary: #f8fafc;
+  --mdr-text-secondary: #94a3b8;
+  --mdr-text-muted: #64748b;
+  --mdr-text-accent: #60a5fa;
+
+  /* ── Border Tokens ── */
+  --mdr-border-subtle: rgba(255, 255, 255, 0.08);
+  --mdr-border-default: rgba(59, 130, 246, 0.2);
+  --mdr-border-strong: rgba(59, 130, 246, 0.4);
+  --mdr-border-input: rgba(255, 255, 255, 0.12);
+
+  /* ── Semantic Status Tokens ── */
+  --mdr-success: #10b981;
+  --mdr-warning: #f59e0b;
+  --mdr-danger: #ef4444;
+  --mdr-info: #3b82f6;
+
+  /* ── Typography Tokens ── */
+  --mdr-font-display: "Comfortaa", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --mdr-font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --mdr-font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
