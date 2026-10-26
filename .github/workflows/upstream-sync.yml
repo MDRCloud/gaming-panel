@@ -1,0 +1,48 @@
+name: Upstream Sync
+
+# Weekly: merge calagopus/panel main into the mdrcloud branch via a PR.
+# Merge conflicts fail the run; resolve locally: git fetch upstream && git merge upstream/main
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    if: github.repository == 'MDRCloud/gaming-panel'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: mdrcloud
+          fetch-depth: 0
+
+      - name: Merge upstream
+        id: merge
+        run: |
+          git config user.name "mdrcloud-bot"
+          git config user.email "noreply@mdrcloud.com"
+          git remote add upstream https://github.com/calagopus/panel.git
+          git fetch upstream main
+          if git merge-base --is-ancestor upstream/main HEAD; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          branch="sync/upstream-$(date +%Y%m%d)"
+          git checkout -b "$branch"
+          git merge --no-edit upstream/main
+          git push origin "$branch"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Open PR
+        if: steps.merge.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr create --base mdrcloud --head "${{ steps.merge.outputs.branch }}" \
+            --title "Sync upstream calagopus/panel" \
+            --body "Automated merge of upstream/main into mdrcloud. Review the diff, check the branding extension still builds, then merge."

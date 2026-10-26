@@ -1,12 +1,12 @@
 {
-  "name": "Calagopus Panel",
-  "short_name": "Calagopus",
-  "description": "Calagopus Panel - Game Server Management",
+  "name": "MDRCloud Game Hosting",
+  "short_name": "MDRCloud Games",
+  "description": "MDRCloud Game Hosting - Game Server Management",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#222222",
-  "theme_color": "#ffffff",
+  "background_color": "#02040a",
+  "theme_color": "#0a0d18",
   "orientation": "any",
   "icons": [
     {
