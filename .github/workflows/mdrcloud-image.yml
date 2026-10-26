@@ -5,6 +5,7 @@ name: MDRCloud Image
 on:
   push:
     branches: [mdrcloud]
+    paths-ignore: ["**.md"]
   workflow_dispatch:
 
 concurrency:
